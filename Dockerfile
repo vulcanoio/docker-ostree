@@ -15,7 +15,8 @@ RUN apt-get update \
 		libgpgme11-dev \
 		liblzma-dev \
 		libsoup2.4-dev \
-		libsystemd-journal-dev
+		libsystemd-journal-dev \
+		man
 
 WORKDIR /usr/src/
 
