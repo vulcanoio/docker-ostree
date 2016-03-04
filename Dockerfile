@@ -3,6 +3,7 @@ FROM debian:jessie
 RUN apt-get update \
 	&& apt-get install -y  \
 		autoconf \
+		bison \
 		build-essential \
 		e2fslibs-dev \
 		git \
@@ -10,6 +11,7 @@ RUN apt-get update \
 		libarchive-dev \
 		libattr1-dev \
 		libcap-dev \
+		libfuse-dev \
 		libgirepository1.0-dev \
 		libglib2.0-dev \
 		libgpgme11-dev \
@@ -28,7 +30,7 @@ RUN git clone git://git.gnome.org/libgsystem \
 	&& make \
 	&& make install
 
-ENV OSTREE_VERSION v2015.5
+ENV OSTREE_VERSION v2016.3
 RUN git clone git://git.gnome.org/ostree \
 	&& cd ostree \
 	&& git checkout $OSTREE_VERSION \
