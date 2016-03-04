@@ -27,7 +27,7 @@ RUN git clone git://git.gnome.org/libgsystem \
 	&& cd libgsystem \
 	&& git checkout $LIBGSYSTEM_VERSION \
 	&& ./autogen.sh --prefix=/usr \
-	&& make \
+	&& make -j $(nproc) \
 	&& make install
 
 ENV OSTREE_VERSION v2016.3
@@ -35,7 +35,7 @@ RUN git clone git://git.gnome.org/ostree \
 	&& cd ostree \
 	&& git checkout $OSTREE_VERSION \
 	&& ./autogen.sh --prefix=/usr --enable-gtk-doc \
-	&& make \
+	&& make -j $(nproc) \
 	&& make install
 
 ENTRYPOINT [ "/bin/bash", "-c" ]
