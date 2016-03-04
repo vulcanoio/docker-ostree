@@ -37,5 +37,3 @@ RUN git clone git://git.gnome.org/ostree \
 	&& ./autogen.sh --prefix=/usr --enable-gtk-doc \
 	&& make -j $(nproc) \
 	&& make install
-
-ENTRYPOINT [ "/bin/bash", "-c" ]
