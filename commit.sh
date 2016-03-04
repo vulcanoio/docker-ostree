@@ -6,7 +6,7 @@ branch=$3
 
 container=$(docker create $image /bin/false)
 
-cmd="ostree -v commit -v --tar-autocreate-parents --tree=tar=<(cat) --subject $image --branch $branch"
+cmd="LC_ALL=C.UTF-8 ostree -v commit -v --tar-autocreate-parents --tree=tar=<(cat) --subject $image --branch $branch"
 
 docker export $container | docker run -i -v $repo:/ostree/repo resin/ostree "$cmd"
 
